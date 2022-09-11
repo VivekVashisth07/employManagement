@@ -8,7 +8,7 @@ to install the requirements
 It has two app empapp and home
 
 To run use following command 
-First go insise empmanagement folder 
+First go inside empmanagement folder 
 
 python manage.py runserver
 
