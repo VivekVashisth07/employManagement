@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AddDetials</title>
+</head>
+<style>
+    .form {
+  /* background: rgba(19, 35, 47, 0.9); */
+  padding: 40px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 4px;
+  font-size: 20px;
+  /* box-shadow: 0 4px 10px 4px #1ab189; */
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+td {
+    padding: 0 30px;
+  }
+  .input1 {
+  font-size: 20px;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+label{
+    margin-right: 50px;
+}
+
+.button {
+  border: none;
+  color: black;
+  padding: 14px 60px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 20px 50px;
+  cursor: pointer;
+}
+.button:hover, .button:focus {
+  background: #179b77;
+}
+</style>
+<body>
+<form  action="/employ/" method="post" required class="form">
+    <table id="items"> 
+        <tr><td>Employe Name</td><td><input class="input1" type = "text"  name="employe_name" required/></td></tr>
+        <tr><td>Employe Id</td><td><input class="input1"   name="employe_id"/></td></tr>
+        <tr><td>Id Proof</td><td><input  class="input1" type="file" name="id_proof" accept="application/pdf" required/></td></tr>
+        <tr><td>Department</td><td><input class="input1" type = "text"  name="department" required/></td></tr>
+        <tr><td>Salary</td><td><input class="input1" type = "number"  name="salary" required/></td></tr>
+        <tr><td>Manager</td><td><input class="input1" type = "text"  name="manager" required/></td></tr>
+        <tr><td>Task</td><td><input class="input1" type = "text"  name="task" required/></td></tr>
+        <tr><td>Task In Progress</td><td><label>True
+            <input type="radio" name="task_in_progress" value="True" />
+         </label> 
+         <label>False
+            <input type="radio" name="task_in_progress" value="False" />
+         </label></td></tr>
+    </table>
+
+    <button class="button button-block"  type="menu" onclick="location.href='/'">Cancel</button>
+    <button  class="button button-block" type="submit">Save</button>
+</form>
+
+    <!-- <script>
+        function edit(empid):
+        
+    </script> -->
+</body>
+</html>

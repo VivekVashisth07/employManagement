@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EmployeDetials</title>
+</head>
+<style>
+    h2{
+        text-align: center;
+    }
+    .myDiv {
+    /* border: 5px outset red; */
+    /* background-color: lightblue; */
+    text-align: center;
+    }
+    
+    table{
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 20px;
+        border-color: whitesmoke;
+    }
+    td {
+    padding: 10px 30px;
+    background-color:whitesmoke;
+  }
+  .button {
+    border: 1px solid;
+    background-color: whitesmoke;
+    color: black;
+    padding: 5px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px 5px;
+    cursor: pointer;
+    }
+    .button:hover, .button:focus {
+    background: greenyellow;
+    }
+    .goback {
+    border: 1px solid;
+    background-color: whitesmoke;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    margin: 10px 5px;
+    cursor: pointer;
+    }
+    .goback:hover, .button:focus {
+    background: greenyellow;
+    }
+    #myInput {
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 69%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+    }
+</style>
+<script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("items");
+      tr = table.getElementsByTagName("tr");
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        //   }
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+    </script>
+<body>
+
+<!-- <ul>
+{% for employe in employes %}
+<li>{{employe.name}}: {{employe.office}}</li>
+{% endfor %}
+</ul> -->
+<!-- onclick="perform()" -->
+<!-- {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %} -->
+
+<button class="goback"  type="button" onclick="location.href='/'">Go Back</button><h2>Employe Details</h2>
+<div class="myDiv">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Employe Names..">
+    <table id="items"> 
+        <tr>
+        <th>Employe Name</th>
+        <th>Employe Id</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th>Manager</th>
+        <th>Task</th>
+        <th>Task In Progress</th>
+        <th>Id Proof</th>
+        <th>Action</th>
+        </tr>
+    </br>
+            {% for d in data %}
+                <tr>
+                    <td>{{ d.employe_name}}</td>
+                    <td>{{ d.employe_id }}</td>
+                    <td>{{ d.department }}</td>
+                    <td>{{ d.salary }}</td>
+                    <td>{{ d.manager }}</td>
+                    <td>{{ d.task }}</td>
+                    <td>{{ d.task_in_progress }}</td>
+                    <td>{{ d.id_proof }}</td>
+                    <td><button class="button"  type="button" onclick="location.href='edit/?employ_id={{d.employe_id}}'">Edit</button> <button class="button" type="button" onclick="location.href='delete/?employ_id={{d.employe_id}}'">Delete</button></td>
+                    
+                </tr>
+                
+            {% endfor %}
+            
+
+    </table>
+</div>
+    <!-- <script>
+        function edit(empid):
+
+    </script> -->
+</body>
+</html>
